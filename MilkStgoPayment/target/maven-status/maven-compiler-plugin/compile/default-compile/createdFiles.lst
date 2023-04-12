@@ -1,0 +1,14 @@
+com\milkstgo\MilkStgoPayment\MilkStgoPaymentApplication.class
+com\milkstgo\MilkStgoPayment\controllers\TurnoController.class
+com\milkstgo\MilkStgoPayment\services\LecheService.class
+com\milkstgo\MilkStgoPayment\controllers\HomeController.class
+com\milkstgo\MilkStgoPayment\services\TurnoService.class
+com\milkstgo\MilkStgoPayment\repositories\ProveedorRepository.class
+com\milkstgo\MilkStgoPayment\repositories\TurnoRepository.class
+com\milkstgo\MilkStgoPayment\repositories\LecheRepository.class
+com\milkstgo\MilkStgoPayment\entities\ProveedorEntity.class
+com\milkstgo\MilkStgoPayment\controllers\LecheController.class
+com\milkstgo\MilkStgoPayment\controllers\ProveedorController.class
+com\milkstgo\MilkStgoPayment\entities\LecheEntity.class
+com\milkstgo\MilkStgoPayment\services\ProveedorService.class
+com\milkstgo\MilkStgoPayment\entities\TurnoEntity.class
