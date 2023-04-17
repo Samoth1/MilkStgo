@@ -29,7 +29,7 @@ public class ProveedorController {
         return "redirect:/nuevo-proveedor";
     }
 
-    @GetMapping("/lista-proveedores")
+    @GetMapping("/lista-proveedores2")
     public String listar(Model model) {
         ArrayList<ProveedorEntity> proveedores = proveedorService.obtenerProveedores();
         model.addAttribute("proveedores", proveedores);

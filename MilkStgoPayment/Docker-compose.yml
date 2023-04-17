@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  postgres-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+    container_name: app
+    image: samoth1/pep1-tingeso
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/milkydb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - postgres-db
