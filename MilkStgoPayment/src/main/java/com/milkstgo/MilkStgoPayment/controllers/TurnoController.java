@@ -21,17 +21,17 @@ public class TurnoController {
     @Autowired
     private TurnoService turnoService;
 
-    @GetMapping("/carga-archivo")
+    @GetMapping("/carga-archivo-turno")
     public String main() {
-        return "carga-archivo";
+        return "carga-archivo-turno";
     }
 
-    @PostMapping("/carga-archivo")
+    @PostMapping("/carga-archivo-turno")
     public String upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
         turnoService.guardar(file);
         redirectAttributes.addFlashAttribute("mensaje", "¡Archivo cargado correctamente!");
-        turnoService.leerCsv("Acopio.csv");
-        return "redirect:/carga-archivo";
+        turnoService.leerCsv("AcopioTurno.csv");
+        return "redirect:/carga-archivo-turno";
     }
 
     @GetMapping("/datos-turno")

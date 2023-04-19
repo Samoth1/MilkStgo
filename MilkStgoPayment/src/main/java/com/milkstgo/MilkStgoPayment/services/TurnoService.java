@@ -34,7 +34,7 @@ public class TurnoService {
             if(!file.isEmpty()){
                 try{
                     byte [] bytes = file.getBytes();
-                    Path path  = Paths.get("Acopio.csv");
+                    Path path  = Paths.get("AcopioTurno.csv");
                     Files.write(path, bytes);
                     logg.info("Archivo guardado");
                 }
@@ -92,7 +92,4 @@ public class TurnoService {
         guardarData(newData);
     }
 
-    public void eliminarData(ArrayList<TurnoEntity> datas){
-        turnoRepository.deleteAll(datas);
-    }
 }

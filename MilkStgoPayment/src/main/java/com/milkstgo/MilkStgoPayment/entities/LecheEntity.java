@@ -16,7 +16,7 @@ public class LecheEntity {
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Float grasa;
-    private Float solidoTotal;
+    private String grasa;
+    private String solido_total;
     private String proveedor;
 }
