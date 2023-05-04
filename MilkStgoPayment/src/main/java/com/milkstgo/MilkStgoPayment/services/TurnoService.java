@@ -15,7 +15,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Service
 public class TurnoService {
@@ -27,6 +29,19 @@ public class TurnoService {
     public ArrayList<TurnoEntity> obtenerData(){
         return (ArrayList<TurnoEntity>) turnoRepository.findAll();
     }
+
+    public ArrayList<TurnoEntity> obtenerDataByProveedor(){
+        return (ArrayList<TurnoEntity>) turnoRepository.findAll();
+    }
+
+    public ArrayList<TurnoEntity> obtenerDataByDates(Date fechaIni, Date fechaFin){
+        return (ArrayList<TurnoEntity>) turnoRepository.findByFechaGreaterThanEqualAndFechaLessThanEqual(fechaIni, fechaFin);
+    }
+
+    public ArrayList<TurnoEntity> obtenerDataByDatesAndProveedor(Date fechaIni, Date fechaFin, String proveedor){
+        return (ArrayList<TurnoEntity>) turnoRepository.findByFechaGreaterThanEqualAndFechaLessThanEqualAndProveedorEquals(fechaIni, fechaFin, proveedor);
+    }
+
     @Generated
     public String guardar(MultipartFile file){
         String filename = file.getOriginalFilename();
@@ -85,7 +100,7 @@ public class TurnoService {
 
     public void guardarDataDB(String fecha, String turno, String proveedor, String kls_leche){
         TurnoEntity newData = new TurnoEntity();
-        newData.setFecha(fecha);
+        newData.setFecha(new Date(fecha));
         newData.setTurno(turno);
         newData.setProveedor(proveedor);
         newData.setKls_leche(kls_leche);

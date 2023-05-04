@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "data_turno")
 @NoArgsConstructor
@@ -16,7 +18,7 @@ public class TurnoEntity {
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String fecha;
+    private Date fecha;
     private String turno;
     private String proveedor;
     private String kls_leche;

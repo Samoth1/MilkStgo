@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LecheRepository extends JpaRepository<LecheEntity, Integer> {
+    LecheEntity findByProveedor(String proveedor);
 }

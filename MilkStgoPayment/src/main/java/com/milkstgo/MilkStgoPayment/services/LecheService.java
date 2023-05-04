@@ -27,6 +27,18 @@ public class LecheService {
         return (ArrayList<LecheEntity>) lecheRepository.findAll();
     }
 
+    public LecheEntity obtenerDataProveedor(String proveedor){
+        return (LecheEntity) lecheRepository.findByProveedor(proveedor);
+    }
+
+    public String obtenerGrasa(String proveedor){
+        return lecheRepository.findByProveedor(proveedor).getGrasa();
+    }
+
+    public String obtenerSolidoTotal(String proveedor){
+        return lecheRepository.findByProveedor(proveedor).getSolido_total();
+    }
+
     @Generated
     public String guardar(MultipartFile file){
         String filename = file.getOriginalFilename();

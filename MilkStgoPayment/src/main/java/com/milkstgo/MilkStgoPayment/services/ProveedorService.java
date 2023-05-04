@@ -1,5 +1,6 @@
 package com.milkstgo.MilkStgoPayment.services;
 
+import com.milkstgo.MilkStgoPayment.entities.LecheEntity;
 import com.milkstgo.MilkStgoPayment.entities.ProveedorEntity;
 import com.milkstgo.MilkStgoPayment.repositories.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,14 @@ import java.util.ArrayList;
 public class ProveedorService {
     @Autowired
     ProveedorRepository proveedorRepository;
+
+    public ArrayList<ProveedorEntity> obtenerData(){
+        return (ArrayList<ProveedorEntity>) proveedorRepository.findAll();
+    }
+
+    public String obtenerCategoria(String codigo){
+        return proveedorRepository.findByCodigo(codigo).getCategoria();
+    }
 
     public void guardarProveedor(String codigo, String nombre, String categoria, String retencion){
         ProveedorEntity proveedor = new ProveedorEntity();
