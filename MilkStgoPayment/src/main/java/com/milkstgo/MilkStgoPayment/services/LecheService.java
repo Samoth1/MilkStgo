@@ -1,7 +1,6 @@
 package com.milkstgo.MilkStgoPayment.services;
 
 import com.milkstgo.MilkStgoPayment.entities.LecheEntity;
-import com.milkstgo.MilkStgoPayment.entities.TurnoEntity;
 import com.milkstgo.MilkStgoPayment.repositories.LecheRepository;
 import lombok.Generated;
 import org.slf4j.Logger;

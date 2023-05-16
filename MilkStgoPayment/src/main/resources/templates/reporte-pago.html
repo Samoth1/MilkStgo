@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar Pago</title>
+</head>
+<body>
+
+<h2>Datos del pago:</h2>
+
+<table>
+    <tr>
+        <th>Quincena</th>
+        <th>Código Proveedor</th>
+        <th>Nombre Proveedor</th>
+        <th>Kg Leche</th>
+        <th>Días Envío Leche</th>
+        <th>Promedio Leche</th>
+        <th>Variación Leche</th>
+        <th>% Grasa</th>
+        <th>Variación Grasa</th>
+        <th>% ST</th>
+        <th>Variación ST</th>
+        <th>Pago Leche</th>
+        <th>Pago Grasa</th>
+        <th>Pago ST</th>
+        <th>Pago Bono</th>
+        <th>Dcto Var Leche</th>
+        <th>Dcto Var Grasa</th>
+        <th>Dcto Var ST</th>
+        <th>Pago Total</th>
+        <th>Monto Retención</th>
+        <th>Monto Final</th>
+    </tr>
+
+    <tr th:each="pago:${reporte_pago}">
+        <td th:text="${pago.quincena}"></td>
+        <td th:text="${pago.codigoProveedor}"></td>
+        <td th:text="${pago.nombreProveedor}"></td>
+        <td th:text="${pago.klsLeche}"></td>
+        <td th:text="${pago.diasEnvioLeche}"></td>
+        <td th:text="${pago.promedioLeche}"></td>
+        <td th:text="${pago.variacionLeche}"></td>
+        <td th:text="${pago.porcentajeGrasa}"></td>
+        <td th:text="${pago.variacionGrasa}"></td>
+        <td th:text="${pago.porcentajeST}"></td>
+        <td th:text="${pago.variacionST}"></td>
+        <td th:text="${pago.pagoLeche}"></td>
+        <td th:text="${pago.pagoGrasa}"></td>
+        <td th:text="${pago.pagoST}"></td>
+        <td th:text="${pago.pagoBono}"></td>
+        <td th:text="${pago.dctoVarLeche}"></td>
+        <td th:text="${pago.dctoVarGrasa}"></td>
+        <td th:text="${pago.dctoVarST}"></td>
+        <td th:text="${pago.pagoTotal}"></td>
+        <td th:text="${pago.montoRetencion}"></td>
+        <td th:text="${pago.montoFinal}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

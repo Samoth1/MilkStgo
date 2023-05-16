@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PagoProveedorRepository extends JpaRepository<PagoProveedorEntity, Integer> {
-    PagoProveedorEntity findByCodigoProveedorAndQAndQuincena(String proveedor, String quincena);
+    PagoProveedorEntity findByCodigoProveedorAndQuincena(String codigoProveedor, String quincena);
 }

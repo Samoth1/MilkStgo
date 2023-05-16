@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,18 +23,11 @@ public class TurnoService {
 
     @Autowired
     private TurnoRepository turnoRepository;
+
     private final Logger logg = LoggerFactory.getLogger(TurnoService.class);
 
     public ArrayList<TurnoEntity> obtenerData(){
         return (ArrayList<TurnoEntity>) turnoRepository.findAll();
-    }
-
-    public ArrayList<TurnoEntity> obtenerDataByProveedor(){
-        return (ArrayList<TurnoEntity>) turnoRepository.findAll();
-    }
-
-    public ArrayList<TurnoEntity> obtenerDataByDates(Date fechaIni, Date fechaFin){
-        return (ArrayList<TurnoEntity>) turnoRepository.findByFechaGreaterThanEqualAndFechaLessThanEqual(fechaIni, fechaFin);
     }
 
     public ArrayList<TurnoEntity> obtenerDataByDatesAndProveedor(Date fechaIni, Date fechaFin, String proveedor){

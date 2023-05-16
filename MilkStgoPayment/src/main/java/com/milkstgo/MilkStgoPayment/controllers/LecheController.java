@@ -20,10 +20,17 @@ public class LecheController {
     @Autowired
     private LecheService lecheService;
 
+    //prueba pork pagoproveedor no funciona
+    @GetMapping("/consulta-quincena")
+    public String main() {
+        return "consulta-quincena";
+    }
+
+    /*
     @GetMapping("/carga-archivo-leche")
     public String main() {
         return "carga-archivo-leche";
-    }
+    }*/
 
     @PostMapping("/carga-archivo-leche")
     public String upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {

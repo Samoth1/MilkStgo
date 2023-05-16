@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form th:action="@{/proveedor-data}" method="post">
+
+    <label for="quincena">Quincena:</label>
+    <select id="quincena" name="quincena">
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+
+    <label for="mes">Mes:</label>
+    <select id="mes" name="mes">
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+    </select>
+
+    <label for="anio">Año:</label>
+    <select id="anio" name="anio">
+        <script>
+            var currentYear = new Date().getFullYear();
+            var startYear = 2000;
+            var endYear = 2023;
+
+            for (var year = startYear; year <= endYear; year++) {
+                document.write('<option value="' + year + '">' + year + '</option>');
+            }
+        </script>
+    </select>
+
+    <label for="codigo">Codigo Proveedor:</label>
+    <input type="text" id="codigo" name="codigo">
+
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>
