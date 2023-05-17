@@ -39,33 +39,33 @@ services:
         condition: on-failure
     depends_on:
       - postgres-db
+      -
+  app2:
+    container_name: milkstgo2
+    image: samoth1/milkstgo
+    ports:
+      - "8092:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/milkydb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - postgres-db
 
-    app2:
-      container_name: milkstgo2
-      image: samoth1/milkstgo
-      ports:
-        - "8092:8090"
-      environment:
-        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/milkydb
-        - SPRING_DATASOURCE_USERNAME=postgres
-        - SPRING_DATASOURCE_PASSWORD=123
-      deploy:
-        restart_policy:
-          condition: on-failure
-      depends_on:
-        - postgres-db
-
-    app3:
-      container_name: milkstgo3
-      image: samoth1/milkstgo
-      ports:
-        - "8093:8090"
-      environment:
-        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/milkydb
-        - SPRING_DATASOURCE_USERNAME=postgres
-        - SPRING_DATASOURCE_PASSWORD=123
-      deploy:
-        restart_policy:
-          condition: on-failure
-      depends_on:
-        - postgres-db
+  app3:
+    container_name: milkstgo3
+    image: samoth1/milkstgo
+    ports:
+      - "8093:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/milkydb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - postgres-db
