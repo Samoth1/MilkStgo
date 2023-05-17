@@ -39,7 +39,7 @@ services:
         condition: on-failure
     depends_on:
       - postgres-db
-      -
+      
   app2:
     container_name: milkstgo2
     image: samoth1/milkstgo
