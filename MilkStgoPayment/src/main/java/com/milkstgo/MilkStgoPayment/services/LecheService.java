@@ -22,9 +22,6 @@ public class LecheService {
     @Autowired
     private LecheRepository lecheRepository;
     private final Logger logg = LoggerFactory.getLogger(LecheService.class);
-    public ArrayList<LecheEntity> obtenerData(){
-        return (ArrayList<LecheEntity>) lecheRepository.findAll();
-    }
 
     public LecheEntity obtenerDataProveedor(String proveedor){
         return (LecheEntity) lecheRepository.findByProveedor(proveedor);

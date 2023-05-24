@@ -20,8 +20,6 @@ public class PagoProveedorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String quincena;
-    private Date fechaInicioQuin;
-    private Date fechaTerminoQuin;
     private String codigoProveedor;
     private String nombreProveedor;
     private Integer klsLeche;

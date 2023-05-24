@@ -16,7 +16,7 @@ public class ProveedorService {
         return proveedorRepository.findByCodigo(codigo).getCategoria();
     }
 
-    public String obtenerNombre(String codigo){ return proveedorRepository.findByCodigo(codigo).getNombre();}
+    public String obtenerNombre(String codigo){ return proveedorRepository.findByCodigo(codigo) != null? proveedorRepository.findByCodigo(codigo).getNombre():"no name";}
 
     public String obtenerRetencion(String codigo){ return proveedorRepository.findByCodigo(codigo).getRetencion();}
 

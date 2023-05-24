@@ -26,12 +26,12 @@ public class TurnoService {
 
     private final Logger logg = LoggerFactory.getLogger(TurnoService.class);
 
-    public ArrayList<TurnoEntity> obtenerData(){
+    public ArrayList<TurnoEntity> obtenerDataTurnos(){
         return (ArrayList<TurnoEntity>) turnoRepository.findAll();
     }
 
-    public ArrayList<TurnoEntity> obtenerDataByDatesAndProveedor(Date fechaIni, Date fechaFin, String proveedor){
-        return (ArrayList<TurnoEntity>) turnoRepository.findByFechaGreaterThanEqualAndFechaLessThanEqualAndProveedorEquals(fechaIni, fechaFin, proveedor);
+    public ArrayList<String> obtenerProveedores(){
+        return (ArrayList<String>) turnoRepository.getProveedores();
     }
 
     @Generated

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping
@@ -28,22 +29,22 @@ public class PagoProveedorController {
     public String capturarDatos(@RequestParam("quincena") String quincena,
                                 @RequestParam("mes") String mes,
                                 @RequestParam("anio") String anio,
-                                @RequestParam("codigo") String codigo) {
+                                @RequestParam("codigo") String codigo,
+                                RedirectAttributes redirectAttributes) {
 
-        pagoProveedorService.fechasQuincena(quincena, mes, anio, codigo);
-        pagoProveedorService.reportePago(quincena, mes, anio, codigo);
-
-        pagoProveedor = pagoProveedorService.plantillaPago(codigo, quincena+"/"+mes+"/"+anio);
-        System.out.print(pagoProveedor);
-
+        PagoProveedorEntity pago = pagoProveedorService.plantillaPagoFiltrado(codigo, quincena+"/"+mes+"/"+anio);
+        redirectAttributes.addFlashAttribute("reporte_pago", pago);
         return "redirect:/reporte-pago";
     }
 
     @GetMapping("/reporte-pago")
-    public String mostrarPago(Model model){
-        model.addAttribute("reporte_pago", pagoProveedor);
+    public String mostrarPago(){
         return "reporte-pago";
     }
 
+    @GetMapping("/consulta-quincena")
+    public String mostrarPlantilla(){
+        return "consulta-quincena";
+    }
 
 }

@@ -20,31 +20,17 @@ public class LecheController {
     @Autowired
     private LecheService lecheService;
 
-    //prueba pork pagoproveedor no funciona
-    @GetMapping("/consulta-quincena")
-    public String main() {
-        return "consulta-quincena";
-    }
-
-    /*
     @GetMapping("/carga-archivo-leche")
-    public String main() {
+    public String cargarArchivo() {
         return "carga-archivo-leche";
-    }*/
+    }
 
     @PostMapping("/carga-archivo-leche")
     public String upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
         lecheService.guardar(file);
         redirectAttributes.addFlashAttribute("mensaje", "¡Archivo cargado correctamente!");
         lecheService.leerCsv("AcopioLeche.csv");
-        return "redirect:/carga-archivo-leche";
-    }
-
-    @GetMapping("/datos-leche")
-    public String listar(Model model) {
-        ArrayList<LecheEntity> datas = lecheService.obtenerData();
-        model.addAttribute("datas", datas);
-        return "datos-leche";
+        return "redirect:/carga-archivo-turno";
     }
 
 }
