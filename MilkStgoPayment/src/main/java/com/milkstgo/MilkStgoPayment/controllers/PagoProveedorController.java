@@ -25,6 +25,7 @@ public class PagoProveedorController {
         return "main";
     }
 
+    //aca
     @PostMapping("/proveedor-data")
     public String capturarDatos(@RequestParam("quincena") String quincena,
                                 @RequestParam("mes") String mes,

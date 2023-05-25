@@ -86,10 +86,12 @@ public class TurnoService {
         }
     }
 
+    @Generated
     public void guardarData(TurnoEntity data){
         turnoRepository.save(data);
     }
 
+    @Generated
     public void guardarDataDB(String fecha, String turno, String proveedor, String kls_leche){
         TurnoEntity newData = new TurnoEntity();
         newData.setFecha(new Date(fecha));
